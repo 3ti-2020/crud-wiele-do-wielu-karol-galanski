@@ -9,7 +9,7 @@
     <div class="cont">
         <div class="top">
 
-            <?php
+            <!-- <?php
                 $servername = "localhost"; 
                 $username = "root";
                 $password = "";
@@ -37,7 +37,7 @@
                 echo("<input type='submit' value='wyslij wybrane wartosci'>");
                 echo("</form>");
 
-            ?>
+            ?> -->
         </div>
         <div class="left">
                 <form action="insert-autora.php" method="post" class="formularz">
@@ -51,7 +51,7 @@
                 </form>
         </div>
         <div class="main">
-            <?php
+            <!-- <?php
                 $serwername = "localhost";
                 $username = "root";
                 $password = "";
@@ -80,7 +80,7 @@
                 
 
 
-            ?>
+            ?> -->
         </div>
         <div class="ft"></div>
     </div>
