@@ -9,35 +9,34 @@
     <div class="cont">
         <div class="top">
 
-            <!-- <?php
-                $servername = "localhost"; 
-                $username = "root";
-                $password = "";
-                $dbname = "lib";
+            <?php
+                // $servername = "localhost"; 
+                // $username = "root";
+                // $password = "";
+                // $dbname = "lib";
 
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                // $conn = new mysqli($servername, $username, $password, $dbname);
 
-                $result2 = $conn->query("SELECT * FROM autor");
+                // $result2 = $conn->query("SELECT * FROM autor");
 
-                echo("<form action='insert.php' method='POST'>");
-                echo("<select name='wybrany-autor'>");
-                while($row=$result2->fetch_assoc() ){
-                    echo("<option value='".$row['id_autor']."'>".$row['name']."</option>");
-                }
-                echo("</select>");
+                // echo("<form action='insert.php' method='POST'>");
+                // echo("<select name='wybrany-autor'>");
+                // while($row=$result2->fetch_assoc() ){
+                //     echo("<option value='".$row['id_autor']."'>".$row['name']."</option>");
+                // }
+                // echo("</select>");
 
-                $result3 = $conn->query("SELECT * FROM tytul");
+                // $result3 = $conn->query("SELECT * FROM tytul");
 
-                echo("<select name='wybrany-tytul'>");
-                while($row=$result3->fetch_assoc() ){
-                    echo("<option value='".$row['id_tytul']."'>".$row['tytul']."</option>");
-                }
-                echo("</select>");
-                // echo("<input type='text' name='zamowienie' placeholder='nr. zamowienia'>");
-                echo("<input type='submit' value='wyslij wybrane wartosci'>");
-                echo("</form>");
+                // echo("<select name='wybrany-tytul'>");
+                // while($row=$result3->fetch_assoc() ){
+                //     echo("<option value='".$row['id_tytul']."'>".$row['tytul']."</option>");
+                // }
+                // echo("</select>");
+                // echo("<input type='submit' value='wyslij wybrane wartosci'>");
+                // echo("</form>");
 
-            ?> -->
+            ?>
         </div>
         <div class="left">
                 <form action="insert-autora.php" method="post" class="formularz">
@@ -51,36 +50,36 @@
                 </form>
         </div>
         <div class="main">
-            <!-- <?php
-                $serwername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "lib";
+            <?php
+                // $serwername = "localhost";
+                // $username = "root";
+                // $password = "";
+                // $dbname = "lib";
 
-                $conn = new mysqli($serwername, $username, $password, $dbname);
+                // $conn = new mysqli($serwername, $username, $password, $dbname);
 
-                $result = $conn->query("SELECT * FROM `ksiazki`");
+                // $result = $conn->query("SELECT * FROM `ksiazki`");
 
-                echo("<table border=1>");
-                echo("
-                <th>id</th>
-                <th>name</th>
-                <th>tytul</th>
-                ");
+                // echo("<table border=1>");
+                // echo("
+                // <th>id</th>
+                // <th>name</th>
+                // <th>tytul</th>
+                // ");
 
-                while($row = $result->fetch_assoc() ){
-                    echo("<tr>");
-                    echo("<td>".$row['id_autor_tytul']."</td>");
-                    echo("<td>".$row['name']."</td>");
-                    echo("<td>".$row['tytul']."</td>");
-                    echo("</tr>");
-                }  
-                echo("</table>");
+                // while($row = $result->fetch_assoc() ){
+                //     echo("<tr>");
+                //     echo("<td>".$row['id_autor_tytul']."</td>");
+                //     echo("<td>".$row['name']."</td>");
+                //     echo("<td>".$row['tytul']."</td>");
+                //     echo("</tr>");
+                // }  
+                // echo("</table>");
 
                 
 
 
-            ?> -->
+            ?>
         </div>
         <div class="ft"></div>
     </div>
