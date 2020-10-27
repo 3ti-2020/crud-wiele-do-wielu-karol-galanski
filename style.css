@@ -16,16 +16,33 @@
 .top{
     grid-area: head;
     background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .left{
     grid-area: left;
     background-color: lightskyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .main{
     grid-area: main;
     background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .ft{
     grid-area: ft;
     background-color: lightpink;
+}
+
+.formularz{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
 }
