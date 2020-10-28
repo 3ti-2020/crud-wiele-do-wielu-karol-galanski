@@ -1,10 +1,10 @@
 <?php
-    $serwername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "lib";
+    $servername = "remotemysql.com"; 
+    $username = "dANiUZWfqx";
+    $password = "xx3e003Jtb";
+    $dbname = "dANiUZWfqx";
 
-    $conn = new mysqli($serwername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
     $sql = "INSERT INTO `autor_tytul`(`id_autor_tytul`, `id_autor`, `id_tytul`) VALUES (NULL, '".$_POST['wybrany-autor']."', '".$_POST['wybrany-tytul']."')";
 
