@@ -81,7 +81,10 @@
 
             ?>
         </div>
-        <div class="ft"></div>
+        <div class="ft">
+                <h1>KAROL GALAŃSKI </h1>
+                <h2>GR.1</h2>
+        </div>
     </div>
 </body>
 </html>
