@@ -185,3 +185,11 @@ img {
     opacity: 70%;
   }
 }
+
+.backspace{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
