@@ -8,7 +8,9 @@
 <body>
     <div class="cont">
         <div class="top">
-
+            <div class="linki">
+                <a href="../card-main" class="link">KARTA</a>
+            </div>
         </div>
         <div class="left">
                 <form action="insert.php" method="POST" class="formularz">

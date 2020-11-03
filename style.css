@@ -50,3 +50,24 @@
     flex-direction: column;
     width: 200px;
 }
+.linki{
+    height: 50px;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+}
+.link{
+    height: 50px;
+    width: 150px;
+    background-color: grey;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 0.5s;
+}
+.link:hover{
+    background-color: white;
+    color: black;
+}
