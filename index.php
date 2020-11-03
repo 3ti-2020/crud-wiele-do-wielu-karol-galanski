@@ -9,52 +9,20 @@
     <div class="cont">
         <div class="top">
 
-            <?php
-                $servername = "remotemysql.com"; 
-                $username = "dANiUZWfqx";
-                $password = "xx3e003Jtb";
-                $dbname = "dANiUZWfqx";
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                $result2 = $conn->query("SELECT * FROM autor");
-
-                echo("<form action='insert.php' method='POST'>");
-                echo("<select name='wybrany-autor'>");
-                while($row=$result2->fetch_assoc() ){
-                    echo("<option value='".$row['id_autor']."'>".$row['name']."</option>");
-                }
-                echo("</select>");
-
-                $result3 = $conn->query("SELECT * FROM tytul");
-
-                echo("<select name='wybrany-tytul'>");
-                while($row=$result3->fetch_assoc() ){
-                    echo("<option value='".$row['id_tytul']."'>".$row['tytul']."</option>");
-                }
-                echo("</select>");
-                echo("<input type='submit' value='wyslij wybrane wartosci'>");
-                echo("</form>");
-
-            ?>
         </div>
         <div class="left">
-                <form action="insert-autora.php" method="post" class="formularz">
-                    <input type="text" name="autor" id="podaj nowego autora">
-                    <input type="submit" value="Dodaj Autora">
-                </form>
-
-                <form action="insert-tytul.php" method="post" class="formularz">
-                    <input type="text" name="tytul" id="podaj nowy tytul">
-                    <input type="submit" value="Dodaj Tytul">
+                <form action="insert.php" method="POST">
+                    <input type="text" name="autor" id="autor" placeholder="autor">
+                    <input type="text" name="tytul" id="tytul" placeholder="tytul">
+                    <input type="submit" value="Dodaj">
                 </form>
         </div>
         <div class="main">
             <?php
-                $servername = "remotemysql.com"; 
-                $username = "dANiUZWfqx";
-                $password = "xx3e003Jtb";
-                $dbname = "dANiUZWfqx";
+                $servername = "localhost"; 
+                $username = "root";
+                $password = "";
+                $dbname = "lib";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -83,7 +51,7 @@
         </div>
         <div class="ft">
                 <h1>KAROL GALAŃSKI </h1>
-                <h2>GR.1</h2>
+                <h2>GR.1 Nr 3</h2>
         </div>
     </div>
 </body>
