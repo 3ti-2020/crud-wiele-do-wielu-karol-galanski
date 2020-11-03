@@ -9,14 +9,14 @@
     <div class="cont">
         <div class="top">
             <div class="linki">
-                <a href="../card-main" class="link">KARTA</a>
+                <a href="../card-main/index.html" class="link">KARTA</a>
             </div>
         </div>
         <div class="left">
-                <form action="insert.php" method="POST" class="formularz">
-                    <input type="text" name="autor" id="autor" placeholder="autor">
-                    <input type="text" name="tytul" id="tytul" placeholder="tytul">
-                    <input type="submit" value="Dodaj">
+                <form action="insert.php" method="POST" >
+                    <input type="text" name="autor" id="autor" placeholder="autor" class="formularz">
+                    <input type="text" name="tytul" id="tytul" placeholder="tytul" class="formularz">
+                    <input type="submit" value="Dodaj" class="btn">
                 </form>
         </div>
         <div class="main">
