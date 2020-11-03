@@ -11,7 +11,7 @@
 
         </div>
         <div class="left">
-                <form action="insert.php" method="POST">
+                <form action="insert.php" method="POST" class="formularz">
                     <input type="text" name="autor" id="autor" placeholder="autor">
                     <input type="text" name="tytul" id="tytul" placeholder="tytul">
                     <input type="submit" value="Dodaj">
@@ -19,10 +19,10 @@
         </div>
         <div class="main">
             <?php
-                $servername = "localhost"; 
-                $username = "root";
-                $password = "";
-                $dbname = "lib";
+                $servername = "remotemysql.com"; 
+                $username = "dANiUZWfqx";
+                $password = "xx3e003Jtb";
+                $dbname = "dANiUZWfqx";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
