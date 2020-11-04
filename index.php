@@ -3,13 +3,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <title>Karol Galański</title>
 </head>
 <body>
     <div class="cont">
         <div class="top">
             <div class="linki">
-                <a href="../card-main/index.html" class="link">KARTA</a>
+                <a href="../card-main/index.html" class="link"><i class="fas fa-clipboard" id="card-icon"></i>KARTA</a>
+                <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-karol-galanski" class="link"><i class="fab fa-github" id="github-icon"></i>GITHUB</a>
             </div>
         </div>
         <div class="left">

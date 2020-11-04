@@ -19,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .left{
     grid-area: left;
@@ -52,18 +53,23 @@
     text-align: center;
 }
 .linki{
+    right: 0;
+    bottom: 10px;
+    position: absolute;
     height: 50px;
-    width: 150px;
+    width: 350px;
     display: flex;
     flex-direction: row;
 }
 .link{
+    margin-left: 10px;
+    position: relative;
     height: 50px;
     width: 150px;
     background-color: grey;
     text-decoration: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     color: white;
     transition: 0.5s;
@@ -76,4 +82,10 @@
     margin-top: 10px;
     vertical-align: middle;
     width: 200px;
+}
+#github-icon{
+    font-size: 2rem;
+}
+#card-icon{
+    font-size: 2rem;
 }
