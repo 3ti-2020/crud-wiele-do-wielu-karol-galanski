@@ -14,7 +14,7 @@
 
                 session_start();
 
-                if( isset($_POST['haslo']) && $_POST['haslo'] =="zaq1@WSX"){
+                if( isset($_POST['haslo']) && $_POST['haslo'] =="a"){
                     $_SESSION['logowanie'] = 1;
                 }
 
