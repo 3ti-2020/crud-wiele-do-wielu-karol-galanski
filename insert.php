@@ -44,6 +44,6 @@
 
     }
 
-    header("Location:http://localhost/4ti%20przygotowania/zdalne%20v2/lekcja_nr1%20wiele%20do%20wielu/");
+    header("Location:https://karol-galanski-wdw.herokuapp.com");
 
 ?>
