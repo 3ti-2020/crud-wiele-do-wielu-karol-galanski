@@ -27,8 +27,12 @@
                     </form>
                 <?php
                 }else{
-                    echo("<h1 class='zalogowany'>ZALOGOWANY</h1>");
-                    echo("<a href='plik1.php?akcja=wyloguj'>WYLOGUJ</a>");
+                    ?>
+                    <div class="login">
+                    <h1 class='zalogowany'>ZALOGOWANY</h1>
+                    <a href='index.php?akcja=wyloguj'>WYLOGUJ</a>
+                    </div>
+                    <?php
                 }
 
             ?>
