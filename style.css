@@ -57,7 +57,7 @@
     bottom: 10px;
     position: absolute;
     height: 50px;
-    width: 350px;
+    width: 500px;
     display: flex;
     flex-direction: row;
 }
@@ -83,9 +83,25 @@
     vertical-align: middle;
     width: 200px;
 }
-#github-icon{
+
+#icon{
     font-size: 2rem;
 }
-#card-icon{
-    font-size: 2rem;
+.login{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.zalogowany{
+    color: greenyellow;
+}
+.wylogowany{
+    color: red;
+}
+.logowanie{
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
