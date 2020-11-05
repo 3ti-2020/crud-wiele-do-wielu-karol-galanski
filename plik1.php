@@ -30,7 +30,7 @@
                     ?>
                     <div class="login">
                     <h1 class='zalogowany'>ZALOGOWANY</h1>
-                    <a href='index.php?akcja=wyloguj'>WYLOGUJ</a>
+                    <button><a href='index.php?akcja=wyloguj' class="btn-wyloguj">WYLOGUJ</a></button>
                     </div>
                     <?php
                 }
@@ -45,11 +45,22 @@
 
         </div>
         <div class="left">
-                <form action="insert.php" method="POST" >
-                    <input type="text" name="autor" id="autor" placeholder="autor" class="formularz">
-                    <input type="text" name="tytul" id="tytul" placeholder="tytul" class="formularz">
-                    <input type="submit" value="Dodaj" class="btn">
-                </form>
+
+            <?php
+                
+                if(isset($_SESSION['logowanie'])){
+                    ?>
+                        <form action="insert.php" method="POST">
+                        <input type="text" name="autor" id="autor" placeholder="autor" class="formularz">
+                        <input type="text" name="tytul" id="tytul" placeholder="tytul" class="formularz">
+                        <input type="submit" value="Dodaj" class="btn">
+                    </form>
+                    <?php
+                }else{
+                    echo("Nie można edytować bazy danych, zaloguj się!");
+                }
+            ?>
+
         </div>
         <div class="main">
             <?php
