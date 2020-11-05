@@ -25,7 +25,7 @@
                     ?>
                     <div class="login">
                     <h1 class='zalogowany'>ZALOGOWANY</h1>
-                    <a href='index.php?akcja=wyloguj'>WYLOGUJ</a>
+                    <button><a href='index.php?akcja=wyloguj' class="btn-wyloguj">WYLOGUJ</a></button>
                     </div>
                     <?php
                 }else{
@@ -50,11 +50,22 @@
 
         </div>
         <div class="left">
-                <form action="insert.php" method="POST" >
-                    <input type="text" name="autor" id="autor" placeholder="autor" class="formularz">
-                    <input type="text" name="tytul" id="tytul" placeholder="tytul" class="formularz">
-                    <input type="submit" value="Dodaj" class="btn">
-                </form>
+
+            <?php
+                
+                if(isset($_SESSION['logowanie'])){
+                    ?>
+                        <form action="insert.php" method="POST" >
+                        <input type="text" name="autor" id="autor" placeholder="autor" class="formularz">
+                        <input type="text" name="tytul" id="tytul" placeholder="tytul" class="formularz">
+                        <input type="submit" value="Dodaj" class="btn">
+                    </form>
+                    <?php
+                }else{
+                    echo("Nie można edytować bazy danych, zaloguj się!");
+                }
+            ?>
+                
         </div>
         <div class="main">
             <?php
@@ -72,6 +83,7 @@
                 <th>id</th>
                 <th>name</th>
                 <th>tytul</th>
+                <th>USUŃ</th>
                 ");
 
                 while($row = $result->fetch_assoc() ){
@@ -79,6 +91,14 @@
                     echo("<td>".$row['id_autor_tytul']."</td>");
                     echo("<td>".$row['name']."</td>");
                     echo("<td>".$row['tytul']."</td>");
+                    if(isset($_SESSION['logowanie'])){
+                    echo("<td>
+                        <form action='delete.php' method='POST'>
+                            <input type='hidden' name='id' value='".$row['id_autor_tytul']."'>
+                            <input type='submit' value='X'>
+                        </form>
+                    </td>");
+                    }
                     echo("</tr>");
                 }  
                 echo("</table>");
