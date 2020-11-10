@@ -41,6 +41,7 @@
                 <a href="index.php" class="link"><i class="fas fa-home" id="icon"></i>MAIN</a>
                 <a href="../card-main/index.html" class="link"><i class="fas fa-clipboard" id="icon"></i>KARTA</a>
                 <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-karol-galanski" class="link"><i class="fab fa-github" id="icon"></i>GITHUB</a>
+                <a href="wypozyczenia.php" class="link"><i class="far fa-address-book" id="icon"></i>WYPOŻYCZENIA</a>
             </div>
 
         </div>
