@@ -46,25 +46,42 @@
                 <a href="plik1.php" class="link"><i class="fas fa-sign-in-alt" id="icon"></i>LOGIN</a>
                 <a href="../card-main/index.html" class="link"><i class="fas fa-clipboard" id="icon"></i>KARTA</a>
                 <a href="https://github.com/3ti-2020/crud-wiele-do-wielu-karol-galanski" class="link"><i class="fab fa-github" id="icon"></i>GITHUB</a>
-                <a href="wypozyczenia.php" class="link"><i class="far fa-address-book" id="icon"></i>WYPOŻYCZENIA</a>
+                <a href="index.php" class="link"><i class="fas fa-home" id="icon"></i>MAIN</a>
             </div>
 
         </div>
         <div class="left">
 
-            <?php
-                
-                if(isset($_SESSION['logowanie'])){
-                    ?>
-                        <form action="insert.php" method="POST" >
-                        <input type="text" name="autor" id="autor" placeholder="autor" class="formularz">
-                        <input type="text" name="tytul" id="tytul" placeholder="tytul" class="formularz">
-                        <input type="submit" value="Dodaj" class="btn">
-                    </form>
-                    <?php
-                }else{
-                    echo("Nie można edytować bazy danych, zaloguj się!");
+        <?php
+                $servername = "remotemysql.com"; 
+                $username = "dANiUZWfqx";
+                $password = "xx3e003Jtb";
+                $dbname = "dANiUZWfqx";
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                $result2 = $conn->query("SELECT id_autor_tytul, name, tytul FROM autor_tytul, autor, tytul WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul");
+
+                echo("<form action='insert-wypozyczen.php' method='POST'>");
+                echo("<select name='wybrana-ksiazka' class='formularz'>");
+                while($row=$result2->fetch_assoc() ){
+                    echo("<option value='".$row['id_autor_tytul']."'>".$row['tytul']."</option>");
                 }
+                echo("</select>");
+
+                $result3 = $conn->query("SELECT * FROM uzytkownicy");
+
+                echo("<select name='wybrany-uzytkownik' class='formularz'>");
+                while($row=$result3->fetch_assoc() ){
+                    echo("<option value='".$row['id_user']."'>".$row['login']."</option>");
+                }
+                echo("</select>");
+                echo("<input type='date' name='data-wyp' id='data-wyp' placeholder='Data Wypożyczenia'>");
+                echo("<input type='date' name='data-odd' id='data-odd' placeholder='Data Oddania'>");
+                // echo("<input type='text' name='zamowienie' placeholder='nr. zamowienia'>");
+                echo("<input type='submit' value='wyslij wybrane wartosci'>");
+                echo("</form>");
+
             ?>
                 
         </div>
@@ -77,29 +94,24 @@
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
-                $result = $conn->query("SELECT id_autor_tytul, name, tytul FROM autor_tytul, autor, tytul WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul");
+                $result = $conn->query("SELECT name, tytul, login, data_wypozyczenia, data_oddania   FROM autor_tytul, autor, tytul, wypozyczenia, uzytkownicy WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul AND wypozyczenia.id_book=autor_tytul.id_autor_tytul AND wypozyczenia.id_user=uzytkownicy.id_user");
 
                 echo("<table border=1>");
                 echo("
-                <th>id</th>
-                <th>name</th>
-                <th>tytul</th>
-                <th>USUŃ</th>
+                <th>Autor</th>
+                <th>Tytul</th>
+                <th>User</th>
+                <th>Data Wypożyczenia</th>
+                <th>Data Oddania</th>
                 ");
 
                 while($row = $result->fetch_assoc() ){
                     echo("<tr>");
-                    echo("<td>".$row['id_autor_tytul']."</td>");
                     echo("<td>".$row['name']."</td>");
                     echo("<td>".$row['tytul']."</td>");
-                    if(isset($_SESSION['logowanie'])){
-                    echo("<td>
-                        <form action='delete.php' method='POST'>
-                            <input type='hidden' name='id' value='".$row['id_autor_tytul']."'>
-                            <input type='submit' value='X'>
-                        </form>
-                    </td>");
-                    }
+                    echo("<td>".$row['login']."</td>");
+                    echo("<td>".$row['data_wypozyczenia']."</td>");
+                    echo("<td>".$row['data_oddania']."</td>");
                     echo("</tr>");
                 }  
                 echo("</table>");
