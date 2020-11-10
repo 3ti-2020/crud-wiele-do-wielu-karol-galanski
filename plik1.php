@@ -9,33 +9,7 @@
 <body>
     <div class="cont">
         <div class="top">
-            <?php
-
-                session_start();
-
-                if( isset($_GET['akcja']) && $_GET['akcja'] == "wyloguj" ){
-                    unset($_SESSION['logowanie']);
-                }
-
-                if( !isset($_SESSION['logowanie']) ){
-                ?>  
-
-                    <form action="index.php" method="post" class="logowanie">
-                        <input type="text" name="login" placeholder="podaj login">
-                        <input type="text" name="haslo" placeholder="podaj haslo">
-                        <input type="submit" value="Zaloguj">
-                    </form>
-                <?php
-                }else{
-                    ?>
-                    <div class="login">
-                    <h1 class='zalogowany'>ZALOGOWANY</h1>
-                    <button><a href='index.php?akcja=wyloguj' class="btn-wyloguj">WYLOGUJ</a></button>
-                    </div>
-                    <?php
-                }
-
-            ?>
+            
 
             <div class="linki">
                 <a href="index.php" class="link"><i class="fas fa-home" id="icon"></i>MAIN</a>
@@ -47,53 +21,39 @@
         </div>
         <div class="left">
 
-            <?php
-                
-                if(isset($_SESSION['logowanie'])){
-                    ?>
-                        <form action="insert.php" method="POST">
-                        <input type="text" name="autor" id="autor" placeholder="autor" class="formularz">
-                        <input type="text" name="tytul" id="tytul" placeholder="tytul" class="formularz">
-                        <input type="submit" value="Dodaj" class="btn">
-                    </form>
-                    <?php
-                }else{
-                    echo("Nie można edytować bazy danych, zaloguj się!");
-                }
-            ?>
+           
 
         </div>
         <div class="main">
+
             <?php
-                $servername = "remotemysql.com"; 
-                $username = "dANiUZWfqx";
-                $password = "xx3e003Jtb";
-                $dbname = "dANiUZWfqx";
 
-                $conn = new mysqli($servername, $username, $password, $dbname);
+            session_start();
 
-                $result = $conn->query("SELECT id_autor_tytul, name, tytul FROM autor_tytul, autor, tytul WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul");
+            if( isset($_GET['akcja']) && $_GET['akcja'] == "wyloguj" ){
+                unset($_SESSION['logowanie']);
+            }
 
-                echo("<table border=1>");
-                echo("
-                <th>id</th>
-                <th>name</th>
-                <th>tytul</th>
-                ");
+            if( !isset($_SESSION['logowanie']) ){
+            ?>  
 
-                while($row = $result->fetch_assoc() ){
-                    echo("<tr>");
-                    echo("<td>".$row['id_autor_tytul']."</td>");
-                    echo("<td>".$row['name']."</td>");
-                    echo("<td>".$row['tytul']."</td>");
-                    echo("</tr>");
-                }  
-                echo("</table>");
-
-                
-
+                <form action="index.php" method="post" class="logowanie">
+                    <input type="text" name="login" placeholder="podaj login">
+                    <input type="text" name="haslo" placeholder="podaj haslo">
+                    <input type="submit" value="Zaloguj">
+                </form>
+            <?php
+            }else{
+                ?>
+                <div class="login">
+                <h1 class='zalogowany'>ZALOGOWANY</h1>
+                <button><a href='index.php?akcja=wyloguj' class="btn-wyloguj">WYLOGUJ</a></button>
+                </div>
+                <?php
+            }
 
             ?>
+
         </div>
         <div class="ft">
                 <h1>KAROL GALAŃSKI </h1>

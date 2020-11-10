@@ -15,7 +15,7 @@
 }
 .top{
     grid-area: head;
-    background-color: lightcoral;
+    background-color: #ffcdb2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
 }
 .left{
     grid-area: left;
-    background-color: lightskyblue;
+    background-color: #ffb4a2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,14 +31,14 @@
 }
 .main{
     grid-area: main;
-    background-color: lightgreen;
+    background-color: #e5989b;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .ft{
     grid-area: ft;
-    background-color: lightpink;
+    background-color: #b5838d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +50,13 @@
     display: flex;
     flex-direction: column;
     width: 200px;
+}
+.formularz-wyp{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    flex-direction: row;
 }
 .linki{
     right: 0;
@@ -82,19 +89,28 @@
     vertical-align: middle;
     width: 200px;
 }
-
+.btn-wyp{
+    margin-top: 10px;
+    vertical-align: middle;
+    width: 200px;
+}
 #icon{
     font-size: 2rem;
 }
 .login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.login1{
     position: absolute;
     top: 10px;
     left: 10px;
-    display: flex;
+    align-items: center;
     flex-direction: column;
 }
 .zalogowany{
-    color: greenyellow;
+    color: black;
 }
 .wylogowany{
     color: black;
@@ -105,11 +121,8 @@
     color: black;
 }
 .logowanie{
-    position: absolute;
-    top: 10px;
-    left: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 input, button{
@@ -120,4 +133,5 @@ input, button{
     font-size: 1rem;
     margin: 2px;
     border: none;
+    background-color: white;
 }

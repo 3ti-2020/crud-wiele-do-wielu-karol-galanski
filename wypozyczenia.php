@@ -23,14 +23,14 @@
                 }
                 if( isset($_SESSION['logowanie']) && $_SESSION['logowanie'] == 1){
                     ?>
-                    <div class="login">
+                    <div class="login1">
                     <h1 class='zalogowany'>ZALOGOWANY</h1>
                     <button><a href='index.php?akcja=wyloguj' class="btn-wyloguj">WYLOGUJ</a></button>
                     </div>
                     <?php
                 }else{
                     ?>
-                    <div class="login">
+                    <div class="login1">
                     <h1 class='wylogowany'>NIE ZALOGOWANY</h1>
                     </div>
                     
@@ -62,8 +62,9 @@
 
                 $result2 = $conn->query("SELECT id_autor_tytul, name, tytul FROM autor_tytul, autor, tytul WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul");
 
+                if(isset($_SESSION['logowanie'])){
                 echo("<form action='insert-wypozyczen.php' method='POST'>");
-                echo("<select name='wybrana-ksiazka' class='formularz'>");
+                echo("<select name='wybrana-ksiazka' class='formularz-wyp'>");
                 while($row=$result2->fetch_assoc() ){
                     echo("<option value='".$row['id_autor_tytul']."'>".$row['tytul']."</option>");
                 }
@@ -71,17 +72,19 @@
 
                 $result3 = $conn->query("SELECT * FROM uzytkownicy");
 
-                echo("<select name='wybrany-uzytkownik' class='formularz'>");
+                echo("<select name='wybrany-uzytkownik' class='formularz-wyp'>");
                 while($row=$result3->fetch_assoc() ){
                     echo("<option value='".$row['id_user']."'>".$row['login']."</option>");
                 }
                 echo("</select>");
-                echo("<input type='date' name='data-wyp' id='data-wyp' placeholder='Data Wypożyczenia'>");
-                echo("<input type='date' name='data-odd' id='data-odd' placeholder='Data Oddania'>");
+                echo("<input type='date' name='data-wyp' id='data-wyp' placeholder='Data Wypożyczenia' class='formularz-wyp'>");
+                echo("<input type='date' name='data-odd' id='data-odd' placeholder='Data Oddania' class='formularz-wyp'>");
                 // echo("<input type='text' name='zamowienie' placeholder='nr. zamowienia'>");
-                echo("<input type='submit' value='wyslij wybrane wartosci'>");
+                echo("<input type='submit' value='Wyślij ' class='btn-wyp'>");
                 echo("</form>");
-
+            }else{
+                echo("Nie można edytować bazy danych, zaloguj się!");
+            }
             ?>
                 
         </div>

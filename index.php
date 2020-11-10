@@ -23,14 +23,14 @@
                 }
                 if( isset($_SESSION['logowanie']) && $_SESSION['logowanie'] == 1){
                     ?>
-                    <div class="login">
+                    <div class="login1">
                     <h1 class='zalogowany'>ZALOGOWANY</h1>
                     <button><a href='index.php?akcja=wyloguj' class="btn-wyloguj">WYLOGUJ</a></button>
                     </div>
                     <?php
                 }else{
                     ?>
-                    <div class="login">
+                    <div class="login1">
                     <h1 class='wylogowany'>NIE ZALOGOWANY</h1>
                     </div>
                     
@@ -80,12 +80,14 @@
                 $result = $conn->query("SELECT id_autor_tytul, name, tytul FROM autor_tytul, autor, tytul WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul");
 
                 echo("<table border=1>");
-                echo("
+                echo("<tr>
                 <th>id</th>
                 <th>name</th>
-                <th>tytul</th>
-                <th>USUŃ</th>
-                ");
+                <th>tytul</th>");
+                if(isset($_SESSION['logowanie'])){   
+                    echo("<th>Usuń</th>");
+                }
+                echo("</tr>");
 
                 while($row = $result->fetch_assoc() ){
                     echo("<tr>");
