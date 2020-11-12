@@ -59,7 +59,7 @@
     flex-direction: row;
 }
 .linki{
-    right: 0;
+    right: 10px;
     bottom: 10px;
     position: absolute;
     height: 50px;
@@ -111,10 +111,11 @@
 }
 .zalogowany{
     color: black;
+    font-size: 1rem;
 }
 .wylogowany{
     color: black;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 .btn-wyloguj{
     text-decoration: none;
@@ -135,3 +136,11 @@ input, button{
     border: none;
     background-color: white;
 }
+table{
+    border-collapse: collapse;
+    font-size: 1.5rem;
+  }
+  th, td{
+    text-align: center;
+    padding: 10px;
+  }

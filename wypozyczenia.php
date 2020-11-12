@@ -78,8 +78,8 @@
                 }
                 echo("</select>");
                 echo("<input type='date' name='data-wyp' id='data-wyp' placeholder='Data Wypożyczenia' class='formularz-wyp'>");
-                echo("<input type='date' name='data-odd' id='data-odd' placeholder='Data Oddania' class='formularz-wyp'>");
-                // echo("<input type='text' name='zamowienie' placeholder='nr. zamowienia'>");
+                // echo("<input type='date' name='data-odd' id='data-odd' placeholder='Data Oddania' class='formularz-wyp'>");
+                
                 echo("<input type='submit' value='Wyślij ' class='btn-wyp'>");
                 echo("</form>");
             }else{
@@ -97,7 +97,7 @@
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
-                $result = $conn->query("SELECT name, tytul, login, data_wypozyczenia, data_oddania   FROM autor_tytul, autor, tytul, wypozyczenia, uzytkownicy WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul AND wypozyczenia.id_book=autor_tytul.id_autor_tytul AND wypozyczenia.id_user=uzytkownicy.id_user");
+                $result = $conn->query("SELECT id_wypo, name, tytul, login, data_wypozyczenia, data_oddania   FROM autor_tytul, autor, tytul, wypozyczenia, uzytkownicy WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul AND wypozyczenia.id_book=autor_tytul.id_autor_tytul AND wypozyczenia.id_user=uzytkownicy.id_user");
 
                 echo("<table border=1>");
                 echo("
@@ -106,6 +106,7 @@
                 <th>User</th>
                 <th>Data Wypożyczenia</th>
                 <th>Data Oddania</th>
+                <th></th>
                 ");
 
                 while($row = $result->fetch_assoc() ){
@@ -114,7 +115,18 @@
                     echo("<td>".$row['tytul']."</td>");
                     echo("<td>".$row['login']."</td>");
                     echo("<td>".$row['data_wypozyczenia']."</td>");
-                    echo("<td>".$row['data_oddania']."</td>");
+                    // echo("<td>".$row['data_oddania']."</td>");
+                    if($row['data_oddania'] != NULL){
+                        echo("<td>".$row['data_oddania']."</td>");
+                    }else{
+                        echo("<td>Do Oddania</td>");
+                    } 
+                    echo("<td>
+                        <form action='update.php' method='POST'>
+                            <input type='hidden' name='id' value='".$row['id_wypo']."'>
+                            <input type='submit' value='Oddaj'>
+                        </form>
+                    </td>");
                     echo("</tr>");
                 }  
                 echo("</table>");
