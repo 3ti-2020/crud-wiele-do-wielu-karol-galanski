@@ -107,7 +107,8 @@
                 <th>Data Wypożyczenia</th>
                 <th>Data Oddania</th>");
                 if(isset($_SESSION['logowanie'])){
-                echo("<th></th>");
+                echo("<th>Oddaj</th>");
+                echo("<th>Usuń</th>");
                 }
 
                 while($row = $result->fetch_assoc() ){
@@ -127,6 +128,12 @@
                         <form action='update.php' method='POST'>
                             <input type='hidden' name='id' value='".$row['id_wypo']."'>
                             <input type='submit' value='Oddaj'>
+                        </form>
+                    </td>");
+                    echo("<td>
+                        <form action='delete-wypo.php' method='POST'>
+                            <input type='hidden' name='id' value='".$row['id_wypo']."'>
+                            <input type='submit' value='X'>
                         </form>
                     </td>");
                     }
