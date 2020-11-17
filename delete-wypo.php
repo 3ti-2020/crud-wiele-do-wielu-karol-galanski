@@ -10,7 +10,7 @@
 
     mysqli_query($conn, $sql);
 
-    header("Location:https://karol-galanski-wdw.herokuapp.com");
+    header("Location:https://karol-galanski-wdw.herokuapp.com/wypozyczenia.php");
 
 
 ?>
