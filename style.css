@@ -125,6 +125,12 @@
     display: flex;
     flex-direction: column;
 }
+.oddana{
+    background-color: greenyellow;
+}
+.dooddania{
+    background-color: red;
+}
 
 input, button{
     text-align: center;

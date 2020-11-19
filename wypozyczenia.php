@@ -119,9 +119,10 @@
                     echo("<td>".$row['data_wypozyczenia']."</td>");
                     // echo("<td>".$row['data_oddania']."</td>");
                     if($row['data_oddania'] != NULL){
-                        echo("<td>".$row['data_oddania']."</td>");
+                        echo("<td class='oddana'>".$row['data_oddania']."</td>");
                     }else{
-                        echo("<td>Do Oddania</td>");
+                        echo("<td class='dooddania'>Do Oddania</td>");
+
                     } ;
                     if(isset($_SESSION['logowanie'])){
                     echo("<td>
