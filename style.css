@@ -125,11 +125,20 @@
     display: flex;
     flex-direction: column;
 }
-.oddana{
+/* .oddana{
     background-color: greenyellow;
 }
 .dooddania{
     background-color: red;
+} */
+.po-terminie{
+    background-color: red;
+}
+.przed-term{
+    background-color: orange;
+}
+.ok-termin{
+    background-color: greenyellow;
 }
 
 input, button{

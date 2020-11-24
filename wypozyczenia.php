@@ -77,8 +77,10 @@
                     echo("<option value='".$row['id_user']."'>".$row['login']."</option>");
                 }
                 echo("</select>");
+                echo("<h3>Data Wypożyczenia:");
                 echo("<input type='date' name='data-wyp' id='data-wyp' placeholder='Data Wypożyczenia' class='formularz-wyp'>");
-                // echo("<input type='date' name='data-odd' id='data-odd' placeholder='Data Oddania' class='formularz-wyp'>");
+                echo("<h3>Data Oddania:");
+                echo("<input type='date' name='data-odd' id='data-odd' placeholder='Data Oddania' class='formularz-wyp'>");
                 
                 echo("<input type='submit' value='Wyślij ' class='btn-wyp'>");
                 echo("</form>");
@@ -97,7 +99,7 @@
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
-                $result = $conn->query("SELECT id_wypo, name, tytul, login, data_wypozyczenia, data_oddania   FROM autor_tytul, autor, tytul, wypozyczenia, uzytkownicy WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul AND wypozyczenia.id_book=autor_tytul.id_autor_tytul AND wypozyczenia.id_user=uzytkownicy.id_user");
+                $result = $conn->query("SELECT id_wypo, name, tytul, login, data_wypozyczenia, data_oddania, datediff(data_oddania, CURRENT_DATE) as dni FROM autor_tytul, autor, tytul, wypozyczenia, uzytkownicy WHERE autor_tytul.id_autor=autor.id_autor AND autor_tytul.id_tytul=tytul.id_tytul AND wypozyczenia.id_book=autor_tytul.id_autor_tytul AND wypozyczenia.id_user=uzytkownicy.id_user");
 
                 echo("<table border=1>");
                 echo("
@@ -105,10 +107,11 @@
                 <th>Tytul</th>
                 <th>User</th>
                 <th>Data Wypożyczenia</th>
-                <th>Data Oddania</th>");
+                <th>Data Planowanego Oddania</th>");
                 if(isset($_SESSION['logowanie'])){
-                echo("<th>Oddaj</th>");
-                echo("<th>Usuń</th>");
+                    echo("<th>Dni Do Oddania</th>");
+                    // echo("<th>Oddaj</th>");
+                    echo("<th>Usuń</th>");
                 }
 
                 while($row = $result->fetch_assoc() ){
@@ -117,20 +120,27 @@
                     echo("<td>".$row['tytul']."</td>");
                     echo("<td>".$row['login']."</td>");
                     echo("<td>".$row['data_wypozyczenia']."</td>");
-                    // echo("<td>".$row['data_oddania']."</td>");
-                    if($row['data_oddania'] != NULL){
-                        echo("<td class='oddana'>".$row['data_oddania']."</td>");
-                    }else{
-                        echo("<td class='dooddania'>Do Oddania</td>");
+                    echo("<td>".$row['data_oddania']."</td>");
+                    // if($row['data_oddania'] != NULL){
+                    //     echo("<td class='oddana'>".$row['data_oddania']."</td>");
+                    // }else{
+                    //     echo("<td class='dooddania'>Do Oddania</td>");
 
-                    } ;
+                    // } ;
                     if(isset($_SESSION['logowanie'])){
-                    echo("<td>
-                        <form action='update.php' method='POST'>
-                            <input type='hidden' name='id' value='".$row['id_wypo']."'>
-                            <input type='submit' value='Oddaj'>
-                        </form>
-                    </td>");
+                        if($row['dni'] <= 0){
+                            echo("<td class='po-terminie'>".$row['dni']." Po Terminie</td>");
+                        } elseif($row['dni'] >= 0 && $row['dni'] <= 3){
+                            echo("<td class='przed-term'>".$row['dni']."</td>");
+                        }elseif($row['dni'] >= 3){
+                            echo("<td class='ok-termin'>".$row['dni']."</td>");
+                        }
+                    // echo("<td>
+                    //     <form action='update.php' method='POST'>
+                    //         <input type='hidden' name='id' value='".$row['id_wypo']."'>
+                    //         <input type='submit' value='Oddaj'>
+                    //     </form>
+                    // </td>");
                     echo("<td>
                         <form action='delete-wypo.php' method='POST'>
                             <input type='hidden' name='id' value='".$row['id_wypo']."'>
