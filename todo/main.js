@@ -35,8 +35,3 @@ function addTask(text) {
     console.log("Działa");
 }
 
-todoList.addEventListener("click", e => {
-    if (e.target.classList.contains("element-delete")) {
-        e.target.closest(".element").remove();
-    }
-});
