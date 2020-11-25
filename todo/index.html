@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form class="form" id="todoForm">
+        <div class="form-row">
+            <label class="form-label" for="todoMessage">Podaj treść zadania</label>
+            <textarea class="form-message" name="todoMessage" id="todoMessage"></textarea>
+        </div>
+        <div class="form-row">
+            <button type="submit" class="button form-button">Dodaj</button>
+        </div>
+    </form>
+
+    <section class="list-cnt">
+        <header class="list-header">
+            <h2 class="list-title">
+                Lista zadań
+            </h2>
+            <form class="list-search-form">
+                <input type="search" id="todoSearch" class="list-search">
+            </form>
+        </header>
+    
+        <div class="list" id="todoList">
+            
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
