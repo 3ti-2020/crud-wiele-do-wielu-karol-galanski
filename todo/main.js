@@ -5,7 +5,7 @@ const todoTextarea = todoForm.querySelector('textarea');
 
 todoForm.addEventListener("submit", e => {
     e.preventDefault();
-
+    console.log(e);
     if (todoTextarea.value !== "") 
     {
         addTask(todoTextarea.value);
@@ -33,5 +33,19 @@ function addTask(text) {
     todoList.append(element);
     
     console.log("Działa");
+
+    //delete
+    const del = document.createElement("button");
+    del.innerText = "Usuń";
+    del.classList.add("delete");
+    del.addEventListener("click", e => {
+        e.target.parentElement.remove();
+    });
+
+    element.appendChild(del);
+    list.appendChild(element);
+
+    console.log("Działa");
+
 }
 
