@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    /* padding: 0; */
+}
+.cont{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 20vh 1fr;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    "head"
+    "main"
+    ;
+}
+.head{
+    grid-area: head;
+    background-color: #a3c9a8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    grid-area: main;
+    background-color: #84b59f;
+}
