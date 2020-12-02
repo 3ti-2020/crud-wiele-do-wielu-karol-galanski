@@ -23,4 +23,37 @@
     padding: 10px;
     grid-area: main;
     background-color: #84b59f;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
+.question{
+    margin: 10px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.question_title{
+    margin: 5px;
+}
+.question_answerList{
+    margin: 5px;
+}
+details > summary {
+    padding: 4px;
+    width: 200px;
+    background-color: #eeeeee;
+    border: none;
+    box-shadow: 1px 1px 2px #bbbbbb;
+    cursor: pointer;
+  }
+  
+details > p {
+    background-color: #eeeeee;
+    padding: 4px;
+    width: 100px;
+    margin: 0;
+    box-shadow: 1px 1px 2px #bbbbbb;
+  }
