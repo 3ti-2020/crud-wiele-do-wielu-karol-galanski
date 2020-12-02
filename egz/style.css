@@ -20,6 +20,7 @@
     align-items: center;
 }
 .main{
+    padding: 10px;
     grid-area: main;
     background-color: #84b59f;
 }
