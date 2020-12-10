@@ -8,7 +8,9 @@
 </head>
 <body>
     <div class="cont">
-        <div class="head"></div>
+        <div class="head">
+            <h1 class='blog_title'>GAMES BLOG</h1>
+        </div>
         <div class="main">
             <?php
                 $servername = "remotemysql.com"; 
