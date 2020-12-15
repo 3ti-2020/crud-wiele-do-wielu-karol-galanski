@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 .cont{
     height: 100vh;
@@ -28,6 +29,10 @@
     align-items: center;
     flex-direction: column;
 }
+.blog_title{
+    text-decoration: none;
+    color: black;
+}
 .tytul{
     margin: 5px;
 }
@@ -47,11 +52,26 @@
     margin: 5px;
     font-size: 1.5rem;
 }
+.tagi{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
 .tag{
-    position: absolute;
-    font-size: 1rem;
-    right: 10px;
-    bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.form_tag{
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.in_tag{
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #ddb892;
 }
 .zdj{
     border-radius: 10px;
